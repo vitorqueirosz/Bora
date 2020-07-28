@@ -10,6 +10,7 @@
  - [Tools](#-tools)
 
 <br />
+
 ## ℹ️What's Bora?
  __Bora__ is a travel-focused platform that aims to help people find travelers who have a common destination.
 
