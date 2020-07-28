@@ -1,6 +1,6 @@
 
 
- <h2 align="center">:gear: Bora</h2>
+ <h2 align="center">Bora :balloon:</h2>
  
 
  ## 📍 Índice
@@ -9,6 +9,7 @@
  - [Technologies](#-technologies)
  - [Tools](#-tools)
 
+<br />
 ## ℹ️What's Bora?
  __Bora__ is a travel-focused platform that aims to help people find travelers who have a common destination.
 
