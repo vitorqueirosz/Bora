@@ -4,7 +4,7 @@ import { RectButtonProperties } from 'react-native-gesture-handler';
 import { Container, ButtonText, IconContainer, Icon } from './styles';
 
 interface ButtonProps extends RectButtonProperties {
-    children: string;
+    children?: string;
     icon: string;
 }
 

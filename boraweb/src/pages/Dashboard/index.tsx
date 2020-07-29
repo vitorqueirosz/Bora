@@ -136,26 +136,26 @@ const Dashboard: React.FC = () => {
                     </header>
 
                     <div>
-                    <div>
-                        <strong>Estado</strong>
-                        <span>{trip.uf}</span>
-                    </div>
+                        <div>
+                            <strong>Estado</strong>
+                            <span>{trip.uf}</span>
+                        </div>
 
-                    <div>
-                        <strong>Modo de viagem</strong>
-                        <span>{trip.trip_type}</span>
-                    </div>
+                        <div>
+                            <strong>Modo de viagem</strong>
+                            <span>{trip.trip_type}</span>
+                        </div>
 
-                    <div>
-                        <strong>Veiculo</strong>
-                        <span>{trip.vehicle}</span>
-                    </div>
+                        <div>
+                            <strong>Veiculo</strong>
+                            <span>{trip.vehicle}</span>
+                        </div>
 
                     </div>
 
                     <aside>
-                    <strong>Periodo</strong>
-                    <span>{trip.date}</span>
+                        <strong>Periodo</strong>
+                        <span>{trip.date}</span>
                     </aside>
                 </li>
                 ))}

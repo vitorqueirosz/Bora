@@ -191,8 +191,8 @@ export const TravelList = styled.div`
     width: 100%;
     max-width: 1030px;
     border-radius: 4px;
-    padding: 32px 32px;
-    height: 100%;
+    padding: 32px;
+    /* height: 100%; */
 
     ul {
         list-style: none;

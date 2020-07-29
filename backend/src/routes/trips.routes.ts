@@ -42,11 +42,16 @@ tripsRouter.get('/', async (request, response) => {
     formattedDateToIso, 'yyyy-MM-dd', { locale: enUS },
   );
 
-  const trips = await tripsRepository.find({
+  const getTrips = await tripsRepository.find({
     where: [
       { date: formattedDate, uf, city },
     ],
   });
+
+  const trips = getTrips.map((trip) => ({
+    ...trip,
+    date,
+  }));
 
   return response.json({ trips });
 });
