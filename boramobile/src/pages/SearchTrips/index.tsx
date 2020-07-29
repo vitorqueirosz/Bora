@@ -135,6 +135,10 @@ const SearchTrips: React.FC = () => {
 
     }, []);
 
+    const handleNavigateToTrip = useCallback((id: string) => {
+        navigation.navigate('Trip', {id});
+    }, [navigation]);
+
       const handleSearchTrip = useCallback(() => {
         try {
             api.get('/trips', {
@@ -157,7 +161,7 @@ const SearchTrips: React.FC = () => {
     return (
       <Container>
 
-        <Icon onPress={() => navigation.goBack()} name="arrow-left" size={20} color="#6c63ef" />
+        <Icon onPress={() => navigation.goBack()} name="arrow-left" size={20} color="#4C42DB" />
         
         <Header>
 
@@ -278,7 +282,7 @@ const SearchTrips: React.FC = () => {
                         
               <AsideContent>
                 <AsideTripInfo>
-                  <Icon onPress={() => navigation.navigate('Trip')} name="chevron-right" size={20} color="#6c63ef" />
+                  <Icon onPress={() => handleNavigateToTrip(trip.id)} name="chevron-right" size={20} color="#6c63ef" />
                 </AsideTripInfo>
               </AsideContent>
 

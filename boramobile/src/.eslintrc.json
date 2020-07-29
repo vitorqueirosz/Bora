@@ -27,6 +27,7 @@
         "prettier/prettier": "off",
         "react-hooks/rules-of-hooks": "error",
         "react/jsx-props-no-spreading": "off",
+        "no-param-reassign": [2, { "props": false }],
         "no-unused-expressions": "off",
         "camelcase": "off",
         "react/prop-types": "off",

@@ -2,34 +2,48 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
-  background: #6c63ef;
+  background: #4C42DB;
 `;
-
+export const HeaderIcon = styled.View`
+    padding: 32px 32px 8px 32px;
+`;
 export const Header = styled.View`
     /* flex: 1; */
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 32px;
+    padding: 0 32px 32px 32px;
 
+`;
+export const ProfileImage = styled.Image`
+    width: 100%;
+    max-width: 125px;
+    height: 130px;
+
+    border-radius: 130px;
 `;
 
 
-export const ProfileContent = styled.View``;
+export const ProfileContent = styled.View`
+    margin-top: 32px;
+`;
 
 
 export const Infos = styled.View`
     flex-direction: row;
     align-items: center;
+    /* justify-content: space-between; */
     
 `;
 export const MainText = styled.Text`
-    color: #B6C1DD;
-    margin-right: 16px;
+    color: #BBC0D0;
+    font-weight: bold;
+    margin-right: 24px;
 
 `;
 export const SubText = styled.Text`
     color: #fff;
+    font-weight: bold;
 `;
 
 export const MainContent= styled.View`
@@ -68,7 +82,8 @@ export const TripContainer = styled.View`
     
 `;
 export const CityContainer = styled.View`
-    background: #6c63ef;
+    /* background: #6c63ef; */
+    background: #5249F2;
     width: 80px;
     justify-content: center;
     align-items: center;
@@ -100,6 +115,7 @@ export const TripTopText = styled.Text`
 `;
 export const TripBottomText = styled.Text`
     color: #6c63ef;
+    
 `;
 export const AsideContent = styled.View`
     justify-content: center;

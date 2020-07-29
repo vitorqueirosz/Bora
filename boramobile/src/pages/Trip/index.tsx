@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+
+import { useNavigation, useRoute } from '@react-navigation/native';
+
+import api from '../../services/api';
 
 import image from '../../assets/logo.png';
 
@@ -8,40 +12,99 @@ import {
     Container, 
     Header, 
     TripInfo,
-    HeaderText, 
+    HeaderText,
+    ProfileImage, 
     TravelerProfile, 
     ProfileContent, 
     Info, 
     TextInfo, 
     SubTextInfo, 
-    TripText } from './styles';
+    TripText,
+    TripContainer,
+    CityContainer,
+    CityText,
+    Infos,
+    AsideTripInfo,
+    MiddleContent,
+    TripBottomText,
+    TripTopText,
+    AsideContent,
+    AsideTopText, 
+    AsideBottomText } from './styles';
+
+interface Params {
+    id: string;
+}
+
+interface Trip {
+    id: string;
+    trip_type: string;
+    uf: string;
+    city: string;
+    vehicle: string;
+    date: number;
+}
+
+interface User {
+    id: string;
+    name: string;
+    uf: string;
+    city: string;
+    avatar: string;
+}
 
 const Trip: React.FC = () => {
+    
+    const navigation = useNavigation();
+    const routes = useRoute();
+
+    const [userData, setUserData] = useState<User>({} as User);
+    const [tripData, setTripData] = useState<Trip>({} as Trip);
+
+    const routeParams = routes.params as Params;
+
+    useEffect(() => {
+
+        api.get(`/trips/${routeParams.id}`).then(response => {
+            const { user } = response.data;
+            const { trip } = response.data;
+
+            console.log(response.data)
+
+            setUserData(user);
+            setTripData(trip);
+
+        })
+
+    }, [routeParams.id]);
+
     return (
       <Container>
 
 
         <Header>
-          <Icon name="arrow-left" color="#f0f0f5" size={20} />
+          <Icon onPress={() => navigation.goBack()} name="arrow-left" color="#f0f0f5" size={20} />
           <HeaderText>Viajante</HeaderText>
 
           <TravelerProfile>
-            <Image source={image} />
+            <ProfileImage 
+              source={{ uri: `http://192.168.0.102:3333/files/${userData.avatar}` }}
+            />
 
             <ProfileContent>
               <Info>
                 <TextInfo>Nome</TextInfo>
-                <SubTextInfo>Nome</SubTextInfo>
+                <SubTextInfo>{userData.name}</SubTextInfo>
               </Info>
 
               <Info>
                 <TextInfo>Estado</TextInfo>
-                <SubTextInfo>BA</SubTextInfo>
+                <SubTextInfo>{userData.uf}</SubTextInfo>
               </Info>
 
               <Info>
                 <TextInfo>Cidade</TextInfo>
-                <SubTextInfo>Lauro de Freitas</SubTextInfo>
+                <SubTextInfo>{userData.city}</SubTextInfo>
               </Info>
             </ProfileContent>
           </TravelerProfile>
@@ -51,40 +114,36 @@ const Trip: React.FC = () => {
 
           <TripText>Viagem</TripText>
 
-
-          {/* {tripsData.map(trip => ( */}
           <TripContainer>
             <CityContainer>
-              <CityText>Salvador</CityText>
+              <CityText>{tripData.city}</CityText>
             </CityContainer>
 
             <MiddleContent>
-              <TripInfo>
+              <Infos>
                 <TripTopText>Estado</TripTopText>
-                <TripBottomText>BA</TripBottomText>
-              </TripInfo>
+                <TripBottomText>{tripData.uf}</TripBottomText>
+              </Infos>
 
-              <TripInfo>
+              <Infos>
                 <TripTopText>Modo</TripTopText>
-                <TripBottomText>Acompanhante</TripBottomText>
-              </TripInfo>
+                <TripBottomText>{tripData.trip_type}</TripBottomText>
+              </Infos>
 
-              <TripInfo>
+              <Infos>
                 <TripTopText>Veiculo</TripTopText>
-                <TripBottomText>Carro</TripBottomText>
-              </TripInfo>    
+                <TripBottomText>{tripData.vehicle}</TripBottomText>
+              </Infos>    
             </MiddleContent>
                         
             <AsideContent>
               <AsideTripInfo>
                 <AsideTopText>Data</AsideTopText>
-                <AsideBottomText>28-07-2020</AsideBottomText>
+                <AsideBottomText>{tripData.date}</AsideBottomText>
               </AsideTripInfo>
             </AsideContent>
 
           </TripContainer>
-          {/* ))}
-            </TravelList> */}
         </TripInfo>
 
       </Container>

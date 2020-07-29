@@ -15,7 +15,7 @@ export const Header = styled.View`
 `;
 export const Title = styled.Text`
     font-size: 52px;
-    color: #6c63ef;
+    color: #4C42DB;
     margin-right: 32px;
     font-weight: bold;
 `;
@@ -75,7 +75,7 @@ export const CreateAccontButton = styled.TouchableOpacity`
 
 `;
 export const CreateAccontButtonText = styled.Text`
-    color: #6c63ef;
+    color: #4C42DB;
     font-size: 18px;
     margin-left: 16px;
 `;

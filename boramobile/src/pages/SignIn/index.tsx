@@ -86,11 +86,11 @@ const SignIn: React.FC = () => {
   
               <MiddleContainer>
                 <MiddleTitle>Faça viagens </MiddleTitle>
-                <MiddleTitleDown>memoraveis </MiddleTitleDown>
+                <MiddleTitleDown>memoráveis </MiddleTitleDown>
   
               </MiddleContainer>
               <View>
-                <BottomTitle>Conheca pessoas, divida o momento.</BottomTitle>
+                <BottomTitle>Conheça pessoas, divida o momento.</BottomTitle>
               </View>
   
               <AlignContainer>

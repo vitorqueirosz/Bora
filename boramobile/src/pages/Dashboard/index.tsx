@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react';
-// import { Image } from 'react-native';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-
+import Icon from 'react-native-vector-icons/Feather';
+import { useAuth } from '../../hooks/AuthContext';
 import Button from '../../components/Button';
 
 import api from '../../services/api';
 
 import { 
     Container, 
+    HeaderIcon,
     Header, 
     ProfileContent, 
-    Infos, 
+    Infos,
+    ProfileImage, 
     MainText,
     SubText, 
     MainContent, 
@@ -46,17 +48,18 @@ interface TripData {
 
 const Dashboard: React.FC = () => {
     const navigation = useNavigation();
+    const {  signOut } = useAuth();
 
     const [data, setData] = useState<User>({} as User);
     const [tripsData, setTripsData] = useState<TripData[]>([]);
-
-    // const { user } = useAuth();
 
     useEffect(() => {
     
         api.get('/users').then(response => {
             const { user } = response.data;
             const { trip } = response.data;
+
+            console.log(user);
 
             setData(user);
             setTripsData(trip)
@@ -65,11 +68,21 @@ const Dashboard: React.FC = () => {
 
     }, []);
 
+    const handleSignOut = useCallback(() => {
+        signOut();
+    }, [signOut]);
+
     return (
       <Container>
 
+        <HeaderIcon>
+          <Icon onPress={handleSignOut} name="arrow-left" size={20} color="#fff" />
+        </HeaderIcon>
+
         <Header>
-          {/* <Image style={{ flex: 1, justifyContent: 'center', width: '100%', resizeMode: 'cover'}} source={{ uri: `http://10.0.2.2:3333/files/3f0c0207a29de8532dfe-photo.png` }} /> */}
+          <ProfileImage 
+            source={{ uri: `http://192.168.0.102:3333/files/${data.avatar}` }}
+          />
 
           <ProfileContent>
 

@@ -5,11 +5,10 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 export const Container = styled(RectButton)`
   width: 100%;
   height: 60px;
-  background: #6c63ef;
+  background: #4C42DB;
   border-radius: 10px;
   margin-top: 8px;
   align-items: center;
-  /* justify-content: space-between; */
   flex-direction: row;
   
 
@@ -34,4 +33,5 @@ export const ButtonText = styled.Text`
     text-align: center;
     flex: 1;
     padding-right: 32px;
+    font-weight: bold;
 `;

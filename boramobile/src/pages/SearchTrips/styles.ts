@@ -19,7 +19,7 @@ export const Header = styled.View`
 export const HeaderText = styled.Text`
     color: #4e4e4e;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
 `;
 export const SelectContainer = styled.View`
     flex-direction: row;
@@ -39,18 +39,18 @@ export const InputContainer = styled.View<InputProps>`
     
 
     ${props => props.isFocused && css `
-    border-color: #6c63ef;
+    border-color: #4C42DB;
     ` }
 
     ${props => props.isFilled && css `
-        color: #6c63ef;
+        color: #4C42DB;
     ` }
 
 
 `;
 export const TextInput = styled.TextInput`
     height: 50px;
-    color: #6c63ef;
+    color: #4C42DB;
 `;
 
 
@@ -70,7 +70,7 @@ export const Calendar = styled.View`
 `;
 
 export const OpenDatePickerButton  = styled(RectButton)`
-    color: #6c63ef;
+    color: #4C42DB;
     border-radius: 10px;
     align-items: center;
     justify-content: space-between;
@@ -83,13 +83,13 @@ export const OpenDatePickerButton  = styled(RectButton)`
 
 export const OpenDatePickerButtonText = styled.Text`
     font-size: 16px;
-    color: #6c63ef;
+    color: #4C42DB;
 `;
 export const SelectedDate = styled.Text`
-    color: #6c63ef;
+    color: #4C42DB;
 `;
 export const Button = styled.TouchableHighlight`
-    background: #6c63ef;
+    background: #4C42DB;
     justify-content: center;
     align-items: center;
     padding: 0 16px;
@@ -103,7 +103,7 @@ export const TravelList = styled.ScrollView`
 `;
 export const TripContainer = styled.View`
     flex-direction: row;
-    height: 115px;
+    height: 120px;
     background: #fff;
     border-radius: 10px;
     margin-top: 24px;
@@ -111,7 +111,7 @@ export const TripContainer = styled.View`
     
 `;
 export const CityContainer = styled.View`
-    background: #6c63ef;
+    background: #4C42DB;
     width: 80px;
     justify-content: center;
     align-items: center;
@@ -129,7 +129,7 @@ export const MiddleContent = styled.View`
     flex-direction: row;
     justify-content: space-between;
     padding: 8px;
-    width: 200px;
+    width: 210px;
 `;
 
 export const MiddleAsideContent = styled.View``;
@@ -143,7 +143,7 @@ export const TripTopText = styled.Text`
     color: #4E4E4E;
 `;
 export const TripBottomText = styled.Text`
-    color: #6c63ef;
+    color: #4C42DB;
 `;
 export const AsideContent = styled.View`
     justify-content: center;
@@ -154,6 +154,6 @@ export const AsideContent = styled.View`
     
 `;
 export const AsideTripInfo = styled.View`
-    padding: 16px;
+    padding: 8px;
 `;
 
