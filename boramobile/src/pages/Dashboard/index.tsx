@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
-
+import { ActivityIndicator, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useAuth } from '../../hooks/AuthContext';
 import Button from '../../components/Button';
@@ -17,7 +17,6 @@ import {
     MainText,
     SubText, 
     MainContent, 
-    TravelContainer,
     TravelText,
     TravelList,
     TripContainer, 
@@ -52,25 +51,36 @@ const Dashboard: React.FC = () => {
 
     const [data, setData] = useState<User>({} as User);
     const [tripsData, setTripsData] = useState<TripData[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-    
+
         api.get('/users').then(response => {
             const { user } = response.data;
             const { trip } = response.data;
 
-            console.log(user);
-
             setData(user);
-            setTripsData(trip)
-
+            setTripsData(trip);
         })
 
-    }, []);
+        setLoading(false);
+        
+
+    }, [loading]);
 
     const handleSignOut = useCallback(() => {
         signOut();
     }, [signOut]);
+
+    
+    if (loading) {
+        return (
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <ActivityIndicator size="large" color="#9a9a9a" />
+            <Text style={{ fontSize: 11, color: '#9a9a9a'}}>Carregando...</Text>
+          </View>
+        ) 
+    }
 
     return (
       <Container>
@@ -81,7 +91,7 @@ const Dashboard: React.FC = () => {
 
         <Header>
           <ProfileImage 
-            source={{ uri: `http://192.168.0.102:3333/files/${data.avatar}` }}
+            source={{ uri: `http://192.168.0.100:3333/files/${data.avatar}` }}
           />
 
           <ProfileContent>
@@ -109,45 +119,43 @@ const Dashboard: React.FC = () => {
 
           <Button icon="navigation" onPress={() => navigation.navigate('SearchTrips')}>Pesquisar viagens</Button>
 
-          <TravelContainer>
 
-            <TravelText>Minhas viagens</TravelText>
+          <TravelText>Minhas viagens</TravelText>
 
-            <TravelList showsVerticalScrollIndicator={false}>
-              {tripsData.map(trip => (
-                <TripContainer key={trip.id}>
-                  <CityContainer>
-                    <CityText>{trip.city}</CityText>
-                  </CityContainer>
+          <TravelList showsVerticalScrollIndicator={false}>
+            {tripsData.map(trip => (
+              <TripContainer key={trip.id}>
+                <CityContainer>
+                  <CityText>{trip.city}</CityText>
+                </CityContainer>
 
-                  <MiddleContent>
-                    <TripInfo>
-                      <TripTopText>Estado</TripTopText>
-                      <TripBottomText>{trip.uf}</TripBottomText>
-                    </TripInfo>
+                <MiddleContent>
+                  <TripInfo>
+                    <TripTopText>Estado</TripTopText>
+                    <TripBottomText>{trip.uf}</TripBottomText>
+                  </TripInfo>
 
-                    <TripInfo>
-                      <TripTopText>Modo</TripTopText>
-                      <TripBottomText>{trip.trip_type}</TripBottomText>
-                    </TripInfo>
+                  <TripInfo>
+                    <TripTopText>Modo</TripTopText>
+                    <TripBottomText>{trip.trip_type}</TripBottomText>
+                  </TripInfo>
 
-                    <TripInfo>
-                      <TripTopText>Veiculo</TripTopText>
-                      <TripBottomText>{trip.vehicle}</TripBottomText>
-                    </TripInfo>    
-                  </MiddleContent>
+                  <TripInfo>
+                    <TripTopText>Veiculo</TripTopText>
+                    <TripBottomText>{trip.vehicle}</TripBottomText>
+                  </TripInfo>    
+                </MiddleContent>
                         
-                  <AsideContent>
-                    <AsideTripInfo>
-                      <AsideTopText>Data</AsideTopText>
-                      <AsideBottomText>{trip.date}</AsideBottomText>
-                    </AsideTripInfo>
-                  </AsideContent>
+                <AsideContent>
+                  <AsideTripInfo>
+                    <AsideTopText>Data</AsideTopText>
+                    <AsideBottomText>{trip.date}</AsideBottomText>
+                  </AsideTripInfo>
+                </AsideContent>
 
-                </TripContainer>
+              </TripContainer>
                 ))}
-            </TravelList>
-          </TravelContainer>
+          </TravelList>
         </MainContent>
       </Container>
     );

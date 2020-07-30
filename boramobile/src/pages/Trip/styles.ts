@@ -1,4 +1,6 @@
 import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
+// import Icon from 'react-native-vector-icons/FontAwesome';
 
 export const Container = styled.View`
   flex: 1;
@@ -13,7 +15,7 @@ export const Header = styled.View`
 export const HeaderText = styled.Text`
     margin-top: 16px;
     font-weight: bold;
-    color: #BBC0D0;
+    color: #f0f0f5;
     font-size: 22px;
 `;
 export const ProfileImage = styled.Image`
@@ -43,10 +45,12 @@ export const Info = styled.View`
 export const TextInfo = styled.Text`
     color: #BBC0D0;
     font-weight: bold;
+    font-size: 16px;
 `;
 export const SubTextInfo = styled.Text`
     color: #fff;
     font-weight: bold;
+    font-size: 16px;
     
 `;
 
@@ -54,8 +58,8 @@ export const TripInfo = styled.View`
     padding: 32px 16px;
     flex: 1;
     background: #f0f0f5;
-    border-top-left-radius: 29px;
-    border-top-right-radius: 29px;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
 
 `;
 export const TripText = styled.Text`
@@ -129,4 +133,45 @@ export const AsideTopText = styled.Text`
 export const AsideBottomText = styled.Text`
     color: #4C42DB;
     font-size: 12px;
+`;
+
+
+export const ContactContainer = styled.View`
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
+    border-top-width: 2px;
+    border-top-color: #999;
+    background: #fff;
+    width: 100%;
+
+    padding: 16px;
+
+    
+`;
+export const Content = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+`;
+export const ButtonContact = styled(RectButton)`
+    background: #4C42DB;
+    flex-direction: row;
+    height: 50px;
+    width: 150px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+`;
+export const TextContact = styled.Text`
+    color: #f0f0f5;
+    font-size: 16px;
+    font-weight: bold;
+
+    margin-left: 8px;
+
+`;
+
+export const IconContact = styled.Image`
+    width: 20px;
+    height: 20px;
 `;

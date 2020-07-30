@@ -74,6 +74,7 @@ const AuthProvider: React.FC = ({ children }) => {
       ]);
 
       setData({ token, user });
+      
     }, [],
   );
 

@@ -23,10 +23,19 @@ class CreateTripService {
     const findTripInSameDate = await tripsRepository.findBydate(
       date,
     );
+    console.log(findTripInSameDate);
 
     if (findTripInSameDate) {
-      const checkUser = await tripsRepository.findOne({ where: { user_id } });
-      if (checkUser) {
+      const checkUser = await tripsRepository.findOne({
+        where: [
+          {
+            user_id,
+            date,
+          },
+        ],
+      });
+      console.log(checkUser);
+      if (checkUser && findTripInSameDate) {
         throw new AppError('This Trip is already booked.');
       }
     }

@@ -12,10 +12,7 @@ class TripsRepository extends Repository<Trip> {
   public async findBydate(date: string): Promise<Trip | null> {
     const findTrip = await this.findOne({
       where:
-        {
-          date,
-
-        },
+        { date },
     });
 
     return findTrip || null;

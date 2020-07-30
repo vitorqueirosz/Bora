@@ -8,11 +8,9 @@ export const HeaderIcon = styled.View`
     padding: 32px 32px 8px 32px;
 `;
 export const Header = styled.View`
-    /* flex: 1; */
     justify-content: center;
     align-items: center;
-    position: relative;
-    padding: 0 32px 32px 32px;
+    padding: 0 32px 24px 32px;
 
 `;
 export const ProfileImage = styled.Image`
@@ -25,14 +23,14 @@ export const ProfileImage = styled.Image`
 
 
 export const ProfileContent = styled.View`
-    margin-top: 32px;
+    margin-top: 16px;
 `;
 
 
 export const Infos = styled.View`
     flex-direction: row;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     
 `;
 export const MainText = styled.Text`
@@ -47,30 +45,21 @@ export const SubText = styled.Text`
 `;
 
 export const MainContent= styled.View`
-    /* position: absolute; */
     flex: 1;
-
     background: #f0f0f5;
-    border-top-left-radius: 29px;
-    border-top-right-radius: 29px;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
 
-    padding: 32px 16px;
-`;
-
-export const TravelContainer = styled.View`
-    margin-top: 32px;
+    padding: 24px 16px;
 `;
 
 export const TravelText = styled.Text`
     font-weight: bold;
     color: #3B455F;
+    margin-top: 32px;
 `;
 
 export const TravelList = styled.ScrollView`
-    width: 100%;
-    /* background: #c6d0ec;
-    padding: 16px; */
-    
 `;
 
 export const TripContainer = styled.View`
@@ -82,7 +71,6 @@ export const TripContainer = styled.View`
     
 `;
 export const CityContainer = styled.View`
-    /* background: #6c63ef; */
     background: #5249F2;
     width: 80px;
     justify-content: center;
@@ -106,7 +94,6 @@ export const MiddleContent = styled.View`
   
 `;
 export const TripInfo = styled.View`
-    /* margin-left: 6px; */
     justify-content: center;
     align-items: center;
 `;
