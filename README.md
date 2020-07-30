@@ -8,7 +8,6 @@
  - [What's Bora?](#-what's-findServices)
  - [Technologies](#-technologies)
  - [Tools](#-tools)
-
 <br />
 
 ## ℹ️What's Bora?
@@ -20,7 +19,7 @@
 </p>
 </br>
 
-### :rocket: Technologies
+## :rocket: Technologies
 This project was developed with the following technologies:
 
 - [TypeScript](https://github.com/Microsoft/TypeScript)
@@ -38,14 +37,15 @@ This project was developed with the following technologies:
 ## :hammer: Tools
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Insomnia](https://insomnia.rest)
+- [DBeaver](https://dbeaver.io)
 </br>
 
-### 👷 Installation
+## 👷 Installation
 You need to install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com) first, then in order to clone the project via HTTPS, run this command:
 
     git clone https://github.com/vitorqueirosz/bora-app.git
 
-### Install dependencies
+## ⚙️ Install dependencies
 
     yarn install
     
