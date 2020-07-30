@@ -43,7 +43,7 @@ This project was developed with the following technologies:
 ## 👷 Installation
 You need to install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com) first, then in order to clone the project via HTTPS, run this command:
 
-    git clone https://github.com/vitorqueirosz/bora-app.git
+    git clone https://github.com/vitorqueirosz/Bora.git
 
 ## ⚙️ Install dependencies
 
